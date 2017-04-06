@@ -16,7 +16,6 @@
 ****************************************************************************/
 
 #include "tp2.h"
-#define BUFFER_SIZE 128
 
                         //  --------------------------------  //
                         //                                    //
@@ -67,32 +66,16 @@ int main ( int argc, char *argv[]) {
 
         } else if ( strcmp (func, "list") == 0 ) {
 
-            pid_t pid;
-            char *arguments[] = { arg1, arg2, NULL };    
-            // FORK
-            pid = fork();
-                
-            if (pid == -1) {
-                perror("fork error");
-                exit(EXIT_FAILURE);
-            }
-                
-            if (pid == 0) {
-                puts("child process");
-                if (execvp("./bin/list", arguments) == -1) {
-                    perror("execvp error");
-                }
-                
-                puts("parent process");
+            callInstruction("list",arg1,arg2);
 
-            } else {
-                wait(NULL);
-            }
 
+        } else if ( strcmp (func, "new") == 0 ) {
+
+            callInstruction("new",arg1,arg2);
 
         } else if (strcmp (func, "") != 0 ) {
 
-            printf( "Commande inconnue ! \n" );
+            printf( "Programme introuvable\n" );
 
         }
 
@@ -101,3 +84,38 @@ int main ( int argc, char *argv[]) {
     return EXIT_SUCCESS;
 
 }
+
+void callInstruction(char* instruction, char* arg1, char* arg2){
+
+
+    pid_t pid;
+    char *arguments[] = { arg1, arg2, NULL}; 
+
+    char chemin[BUFFER_SIZE];
+
+    strcpy(chemin,  "./bin/");
+    strcat(chemin, instruction);
+
+    // FORK
+    pid = fork();
+                
+    if (pid == -1) {
+        perror("fork error");
+        exit(EXIT_FAILURE);
+    }
+                
+    if (pid == 0) {
+        
+        if (execvp(chemin, arguments) == -1) {
+            perror("execvp error");
+        }
+
+    } else {
+        
+        wait(NULL);
+            
+    }
+
+}
+
+

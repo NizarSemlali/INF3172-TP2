@@ -28,3 +28,4 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <dirent.h> 
+#define BUFFER_SIZE 128

@@ -17,13 +17,4 @@
 
 #include "link.h"
 
-
-/* Structure du fichier */
-
-typedef struct file_struct file_t;
-struct file_struct
-{
-  char* name;      
-  file_t *parent;
-  file_t *next;
-} file_struct;
+void callInstruction(char* instruction, char* arg1, char* arg2);
