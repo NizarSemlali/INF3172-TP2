@@ -68,14 +68,17 @@ int main ( int argc, char *argv[]) {
 
             callInstruction("list",arg1,arg2);
 
-
         } else if ( strcmp (func, "new") == 0 ) {
 
             callInstruction("new",arg1,arg2);
 
+        } else if (strcmp (func, "rmall") == 0 ) {
+
+            callInstruction("rmall",arg1,arg2);
+
         } else if (strcmp (func, "") != 0 ) {
 
-            printf( "Programme introuvable\n" );
+            fprintf(stderr, "Programme introuvable\n");
 
         }
 
