@@ -3,7 +3,7 @@
 # - NIZAR SEMLALI
 # - OTHMANE BOUADDI
 #----------------------------------------------------------------
-all: tsh bin/list bin/new bin/rmall bin/newdir
+all: tsh bin/list bin/new bin/rmall bin/newdir bin/size
 CC = gcc
 OBJECTS := $(patsubst %.c,%.o,$(wildcard *.c))
 EXEC = tsh
@@ -32,6 +32,12 @@ bin/newdir: bin/newdir.o
 bin/newdir.o: bin/newdir.c
 	$(CC) -Wall -o bin/newdir.o -c bin/newdir.c
 
+bin/size: bin/size.o
+	$(CC) -o bin/size bin/size.o
+
+bin/size.o: bin/size.c
+	$(CC) -Wall -o bin/size.o -c bin/size.c
+
 $(EXEC): $(OBJECTS)
 	$(CC) -o $(EXEC) $(OBJECTS)
 
@@ -43,7 +49,10 @@ $(EXEC): $(OBJECTS)
 
 clean:
 	rm -f $(EXEC) $(OBJECTS)
+	rm -f bin/newdir bin/newdir.o
 	rm -f bin/list bin/list.o
 	rm -f bin/new bin/new.o
 	rm -f bin/rmall bin/rmall.o
-	rm -f bin/newdir bin/newdir.o
+	rm -f bin/size bin/size.o
+	
+

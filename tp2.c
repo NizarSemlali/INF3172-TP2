@@ -80,6 +80,10 @@ int main ( int argc, char *argv[]) {
             
             callInstruction("newdir",arg1,arg2);
 
+        } else if (strcmp (func, "size") == 0 ){
+            
+            callInstruction("size",arg1,arg2);
+
         } else if (strcmp (func, "") != 0 ) {
 
             fprintf(stderr, "Programme introuvable\n");
