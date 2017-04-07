@@ -84,6 +84,33 @@ int main ( int argc, char *argv[]) {
             
             callInstruction("size",arg1,arg2);
 
+        } else if (strcmp (func, "fin") == 0 ){
+            
+            bool isDigit = true ; 
+            int tailleChaine = strlen(arg1) ;
+
+            for( int i = 0; i < tailleChaine ; i++){
+
+                if( arg1[i] < '0' || arg1[i] > '9') {
+
+                        isDigit = false; 
+
+                }
+
+            }
+
+
+            if ( !isDigit || strcmp(arg1,"") == 0  ) {
+
+                fprintf(stderr, "Argument invalide !\n");
+
+            } else {
+
+                callInstruction("fin",arg1,arg2);
+
+            }
+
+
         } else if (strcmp (func, "") != 0 ) {
 
             fprintf(stderr, "Programme introuvable\n");
