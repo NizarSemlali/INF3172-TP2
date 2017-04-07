@@ -74,7 +74,7 @@ int main ( int argc, char *argv[]) {
         }
 
         if (closedir(rep) == -1) // S'il y a eu une erreur avec la fermeture 
-                    
+               
             fprintf(stderr, "Erreur de fermeture du répertoire !\n");
 
     }

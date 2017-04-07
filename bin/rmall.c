@@ -27,7 +27,7 @@ int main ( int argc, char *argv[]) {
     getcwd(cwd, sizeof(cwd));
 
     
-    if(strchr(argv[0],'/') != NULL ) {
+    if(strncmp(argv[0],"/",1) == 0 ) {
 
         strcpy(path, argv[0]);
 

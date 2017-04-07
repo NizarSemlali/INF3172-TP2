@@ -27,7 +27,7 @@ int main ( int argc, char *argv[]) {
     getcwd(cwd, sizeof(cwd));
 
     
-    if(strchr(argv[0],'/') != NULL ) {
+    if(strncmp(argv[0],"/",1) == 0 ) {
 
         strcpy(path, argv[0]);
 
@@ -144,8 +144,8 @@ int calculNombreFichiers(char* path){
             } else {
 
                 printf("nom du fichier lu : %s\n", fichierLu->d_name);
-                printf("totalFichiers : %d eme boucle \n", totalFichiers);
                 totalFichiers += 1 ; 
+                printf("totalFichiers : %d eme boucle \n", totalFichiers);
             }
         }
     }
