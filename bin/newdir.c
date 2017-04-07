@@ -5,8 +5,8 @@
 * 
 *     http://www.apache.org/licenses/LICENSE-2.0
 * 
-*   Copyright [2016] [Nizar Semlali]
-*   Copyright [2016] [Othmane Bouaddi]
+*   Copyright [2017] [Nizar Semlali]
+*   Copyright [2017] [Othmane Bouaddi]
 * 
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,25 +19,9 @@
 
 int main ( int argc, char *argv[]) {
 
-/*
-    char path[BUFFER_SIZE];         // Chemin ou le fichier sera créé
-    char fileName[BUFFER_SIZE];     // Nom du fichier texte à créer
-
-    char *last = strrchr(argv[0], '/');
-         
-    strcpy(fileName,last+1);
-    int tailleChemin = strlen(argv[0]) - strlen(fileName) + 1  ; 
-    
-    strncpy(path, argv[0], tailleChemin );
-    // Ajout du '\0' à la fin de la chaine
-    if ( strlen( path ) >= tailleChemin ) {
-        path[ tailleChemin -1 ] = '\0';
-    }
-
     // On garde l'adresse courante de notre dossier : 
-    char cwd[1024];
-    getcwd(cwd, sizeof(cwd));
-*/
+
+
     char path[BUFFER_SIZE];
     char fileName[BUFFER_SIZE];
     char cwd[1024];
@@ -67,7 +51,7 @@ int main ( int argc, char *argv[]) {
 
     DIR* rep = NULL;
     rep = opendir(path); // Ouverture du dossier 
-    
+
     if( chdir( path ) != 0 ) {
 
         fprintf(stderr, "Répertoire introuvable\n");
@@ -78,25 +62,38 @@ int main ( int argc, char *argv[]) {
 
     } else {
 
-        FILE *fichier = NULL;
-        fichier = fopen(fileName,"r");
+        DIR* rep2 = NULL;
+        char pathcomplet[BUFFER_SIZE];
+
+        strcpy(pathcomplet,path);
+        strcat(pathcomplet,"/");
+        strcat(pathcomplet,fileName);
+
+        rep2 = opendir(pathcomplet);
+       
  
-        if (fichier != NULL) {
+        if (rep2 != NULL) {
 
-             fprintf(stderr, "Impossible de créer le fichier!\n");
+             fprintf(stderr, "Impossible de créer le répertoire!\n");
 
-        } else {
+        }else {
 
-            fichier = fopen(fileName, "a");
-            printf("Fichier créé!\n");
+            mode_t process_mask = umask(0);
+            int result_code = mkdir(pathcomplet, S_IRWXU | S_IRWXG | S_IRWXO);
+            umask(process_mask);
+            if(result_code == 0)
+                printf("repertoire créé!\n");
 
-        }
+            else
+                printf("repertoire non créé!\n");
 
+        } 
         // On se repositionne dans le dossier ou on était initialement
-        chdir(cwd);
+        
 
     }
-
+    
+    chdir(cwd);
 
     return EXIT_SUCCESS;
 }

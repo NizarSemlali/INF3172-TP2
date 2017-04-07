@@ -76,12 +76,14 @@ int main ( int argc, char *argv[]) {
 
             callInstruction("rmall",arg1,arg2);
 
+        } else if (strcmp (func, "newdir") == 0 ){
+            
+            callInstruction("newdir",arg1,arg2);
+
         } else if (strcmp (func, "") != 0 ) {
 
             fprintf(stderr, "Programme introuvable\n");
-
         }
-
     }    
 
     return EXIT_SUCCESS;
