@@ -127,6 +127,8 @@ int main ( int argc, char *argv[]) {
         // On se repositionne dans le dossier ou on était initialement
 
         chdir(cwd);
+        
+        return EXIT_SUCCESS;
 
 }
 

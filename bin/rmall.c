@@ -60,6 +60,8 @@ int main ( int argc, char *argv[]) {
     }
 
     chdir(cwd);
+    
+    return EXIT_SUCCESS;
 
 
 
