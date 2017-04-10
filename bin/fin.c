@@ -48,9 +48,6 @@ int main ( int argc, char *argv[]) {
     }
     
     int target = atoi(argv[0]);
-
-    DIR* rep = NULL;
-    rep = opendir(path); // Ouverture du dossier 
     
     if( chdir( path ) != 0 ) {
 

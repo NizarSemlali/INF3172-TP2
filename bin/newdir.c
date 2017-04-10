@@ -49,9 +49,6 @@ int main ( int argc, char *argv[]) {
     }
 
 
-    DIR* rep = NULL;
-    rep = opendir(path); // Ouverture du dossier 
-
     if( chdir( path ) != 0 ) {
 
         fprintf(stderr, "Répertoire introuvable\n");
