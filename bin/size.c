@@ -19,8 +19,6 @@
 int main ( int argc, char *argv[]) {
 
 	char path[BUFFER_SIZE];          // Chemin du dossier à supprimer 
-    //char repertoryName[BUFFER_SIZE];
-
 
     // On garde l'adresse courante de notre dossier : 
     char cwd[1024];
