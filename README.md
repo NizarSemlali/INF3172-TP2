@@ -17,21 +17,21 @@ Nizar Semlali
 
 ### Fonctionnement général 
 
-* Le nom de l'exécutable sera "tsh" pour Turbo-Shell.
+* Le nom de l'exécutable est "tsh" pour Turbo-Shell.
   
-* Le shell aura la responsabilité de lancer divers logiciels pour réaliser des tâches simples.
+* Le shell a la responsabilité de lancer divers logiciels pour réaliser des tâches simples.
   
-* Le shell doit offrir cet invite de commande pour indiquer qu'il est prêt à recevoir une nouvelle tâche.
+* Le shell offre une invite de commande pour indiquer qu'il est prêt à recevoir une nouvelle tâche.
 
   
   
 
 ### Fonctionnement détaillé 
   
-Toutes les commandes du shell seront dans le même répertoire, c'est-à-dire ~/inf3172/bin.
-Si un programme demandé n'est pas dans ce répertoire, un message d'erreur est affiché.
-Toutes ces commandes doivent s'exécuter dans un nouveau processus.
-Le stdout du nouveau processus doit être affiché par le shell.
+Toutes les commandes du shell seront dans le même répertoire, c'est-à-dire ~/inf3172/bin.
+Si un programme demandé n'est pas dans ce répertoire, un message d'erreur est affiché.
+Toutes ces commandes s'exécutent dans un nouveau processus.
+Le stdout du nouveau processus est affiché par le shell.
   
 
 Les commandes supportées sont :  
@@ -41,28 +41,28 @@ Les commandes supportées sont :
   * exit
   * new <nom de fichier>
   * list <-d>
-  * rmall <nom du répertoire>
-  * newdir <nom du répertoire>
-  * size <nom du répertoire>
+  * rmall <nom du répertoire>
+  * newdir <nom du répertoire>
+  * size <nom du répertoire>
   * fin <nbLignes> <fichier>
   
 
   
 ## Contenu du projet
 
-* Fichier tp2.c contenant le code source du projet, avec la fonction main
-* Fichier tp2.h contenant l'interface des méthodes
-* Fichier link.h contenant les constantes et imports de bibliothèques
-* Fichier liste.c sert à afficher la liste des fichiers ou répertoires dans le répertoire courant du shell
-* Fichier new.c sert à créer un nouveau fichier texte vide.
-* Fichier mewdir.c sert à créer un nouveau répertoire vide
-* Fichier rmall.c La commande rmall supprime un répertoire et tout son contenu récursivement
-* Fichier rmall.h contenant l'interface des méthodes de la classe rmall.c
-* Fichier size.c doit calculer le nombre de fichier dans le répertoire et la taille du répertoire
-* Fichier size.h contenant l'interface des méthodes de la classe size.c
-* Fichier fin.c sert à afficher un certain nombre de lignes d'un fichier à partir de la fin du fichier
-* Fichier README.md qui décrit le contenu du projet
-* Fichier Makefile supportant les appels make et make clean 
+* Fichier tp2.c :     Code source du projet, avec la fonction main.
+* Fichier tp2.h :     Interface des méthodes de la classe tp2.h
+* Fichier link.h :    Constantes et imports de bibliothèques.
+* Fichier list.c :    Affichee la liste des fichiers ou répertoires dans le répertoire courant du shell
+* Fichier new.c :     Crée un nouveau fichier texte vide.
+* Fichier mewdir.c :  Crée un nouveau répertoire vide.
+* Fichier rmall.c :   Supprime un répertoire et tout son contenu récursivement.
+* Fichier rmall.h :   Interface des méthodes de la classe rmall.c
+* Fichier size.c :    Calcule le nombre de fichier dans le répertoire et la taille de ce dernier.
+* Fichier size.h :    Interface des méthodes de la classe size.c
+* Fichier fin.c :     Affiche un certain nombre de lignes d'un fichier à partir de la fin du fichier.
+* Fichier README.md : Décrit le contenu du projet.
+* Fichier Makefile :  Supporte les appels make et make clean.
 
 
 ## Références
@@ -72,4 +72,4 @@ Pas de références.
 ## Statut
 
 Toutes les méthodes sont implémentées . 
-  WIP pour la persistence du disque . 
+WIP pour le makefile et déplacement de l'exécutable tsh dans le répertoire bin.
