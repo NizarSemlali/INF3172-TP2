@@ -26,13 +26,12 @@
 
 int main ( int argc, char *argv[]) {
 
-    //int pid;
     char command[BUFFER_SIZE];
     char func[BUFFER_SIZE],arg1[BUFFER_SIZE],arg2[BUFFER_SIZE];
 
     while (1) {
-    // PRINT THE SHELL HEADER
 
+    // Affichage de l'invite de commande tsh>
         printf("tsh> ");
         fflush(stdin);
         memset(command,'\0',BUFFER_SIZE);
@@ -41,11 +40,15 @@ int main ( int argc, char *argv[]) {
         memset(arg2,'\0',BUFFER_SIZE);
 
         fgets(command, BUFFER_SIZE, stdin);
-        //extract first three strings in command (delimited by spaces)      
+
+        //Extraction des 3 paramètres (séparés par des espaces)      
         sscanf(command ,"%s %s %s",func,arg1,arg2);
 
         if ( strcmp(func, "exit") == 0 ) {
+
             break;
+
+        // Fonction cdir : Affichage du répertoire courant
         } else if ( strcmp (func, "cdir") == 0 ) {
 
             char cwd[1024];
@@ -54,38 +57,47 @@ int main ( int argc, char *argv[]) {
  
         } else if ( strcmp (func, "cd") == 0 ){
 
+            // Commande cd sans paramètre
             if ( strcmp(arg1, "") == 0 ) {
 
                 fprintf(stderr, "La commande cd doit absolument avoir un paramètre!\n");
 
+            // Commande cd avec chemin erroné    
             } else if( chdir( arg1 ) != 0 ) {
 
                 fprintf(stderr, "Répertoire introuvable\n");
 
             }
 
+        // Fonction list 
         } else if ( strcmp (func, "list") == 0 ) {
 
             callInstruction("list",arg1,arg2);
 
+        // Fonction new 
         } else if ( strcmp (func, "new") == 0 ) {
 
             callInstruction("new",arg1,arg2);
 
+        // Fonction rmall 
         } else if (strcmp (func, "rmall") == 0 ) {
 
             callInstruction("rmall",arg1,arg2);
 
+        // Fonction newdir 
         } else if (strcmp (func, "newdir") == 0 ){
             
             callInstruction("newdir",arg1,arg2);
 
+        // Fonction size 
         } else if (strcmp (func, "size") == 0 ){
             
             callInstruction("size",arg1,arg2);
 
+        // Fonction fin 
         } else if (strcmp (func, "fin") == 0 ){
             
+            // Validation du paramètre nombre de lignes
             bool isDigit = true ; 
             int tailleChaine = strlen(arg1) ;
 
@@ -110,7 +122,7 @@ int main ( int argc, char *argv[]) {
 
             }
 
-
+        // Instruction invalide
         } else if (strcmp (func, "") != 0 ) {
 
             fprintf(stderr, "Programme introuvable\n");
@@ -132,7 +144,7 @@ void callInstruction(char* instruction, char* arg1, char* arg2){
     strcpy(chemin,  "./bin/");
     strcat(chemin, instruction);
 
-    // FORK
+    // FORK , et exécution du sous-programme :
     pid = fork();
                 
     if (pid == -1) {

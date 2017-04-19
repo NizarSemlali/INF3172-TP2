@@ -24,7 +24,7 @@ int main ( int argc, char *argv[]) {
     char cwd[1024];
     getcwd(cwd, sizeof(cwd));
 
-    
+    // Validation du chemin : Relatif ou absolu 
     if(strncmp(argv[0],"/",1) != 0 ) {
         
         strcpy(path, cwd);
@@ -45,7 +45,7 @@ int main ( int argc, char *argv[]) {
 
     }
 
-    
+    // Si le chemin absolu ou relatif n'existe pas
     if( chdir( path ) != 0 ) {
 
         fprintf(stderr, "Répertoire introuvable\n");
@@ -59,6 +59,7 @@ int main ( int argc, char *argv[]) {
         FILE *fichier = NULL;
         fichier = fopen(fileName,"r");
  
+        // Fichier existant 
         if (fichier != NULL) {
 
              fprintf(stderr, "Impossible de créer le fichier!\n");

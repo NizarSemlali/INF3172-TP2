@@ -26,7 +26,7 @@ int main ( int argc, char *argv[]) {
     char cwd[1024];
     getcwd(cwd, sizeof(cwd));
 
-    
+    // Validation du chemin : Relatif ou absolu 
     if(strncmp(argv[0],"/",1) == 0 ) {
 
         strcpy(path, argv[0]);
@@ -44,6 +44,7 @@ int main ( int argc, char *argv[]) {
     DIR* rep = NULL;
     rep = opendir(path); // Ouverture du dossier 
 
+    // Si le chemin absolu ou relatif n'existe pas
     if (rep == NULL) { 
 
         fprintf(stderr, "Répertoire introuvable !\n"); 
@@ -93,10 +94,13 @@ int calculTailleTotale(char* path){
         if ((strcmp(fichierLu->d_name,".") != 0) &&
             (strcmp(fichierLu->d_name,"..") != 0)) {
 
+            // Répertoire
             if (fichierLu->d_type == 4) {
 
+                // Appel récursif, calcul de la taille des sous répertoires
                 taille += calculTailleTotale(cible);
 
+            // Fichier
             } else {
 
                 if (!stat(fichierLu->d_name, &file_stats))
@@ -136,16 +140,17 @@ int calculNombreFichiers(char* path){
         if ((strcmp(fichierLu->d_name,".") != 0) &&
             (strcmp(fichierLu->d_name,"..") != 0)) {
 
+            // Répertoire
             if (fichierLu->d_type == 4) {
                 
+                // Appel récursif, calcul du nombre de fichiers dans le sous répertoire
                 totalFichiers += calculNombreFichiers(cible);
-                printf("ICI"); 
 
+            // Fichier
             } else {
 
-                printf("nom du fichier lu : %s\n", fichierLu->d_name);
                 totalFichiers += 1 ; 
-                printf("totalFichiers : %d eme boucle \n", totalFichiers);
+
             }
         }
     }

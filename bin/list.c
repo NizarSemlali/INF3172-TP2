@@ -36,6 +36,8 @@ int main ( int argc, char *argv[]) {
 
     } else {
 
+        // Affichage des sous-répertoires avec l'option -d
+        
         if ( strcmp(argv[0], "-d") == 0 ) {
 
             printf("Sous-répertoires de %s \n", cwd);
@@ -53,6 +55,7 @@ int main ( int argc, char *argv[]) {
                     }
                 }
 
+        // Affichage des fichiers
 
         } else if ( strcmp(argv[0], "") == 0 ) {
 
@@ -67,6 +70,7 @@ int main ( int argc, char *argv[]) {
                 }
             }
 
+        // Argument passé invalide 
         } else {
 
             fprintf(stderr, "Argmuent invalide !\n");

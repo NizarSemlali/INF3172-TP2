@@ -62,4 +62,3 @@ clean:
 	rm -f bin/size bin/size.o
 	rm -f bin/fin bin/fin.o
 	
-

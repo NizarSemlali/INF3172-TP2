@@ -17,4 +17,12 @@
 
 #include "link.h"
 
+/*
+ * Fait l'appel à l'instruction correspondante . 
+ *
+ * @param instruction : Instruction demandée .
+ * @param arg1 : Premier argument de la requête.
+ * @param arg2 : Deuxième argument de la requête.
+ *
+*/ 
 void callInstruction(char* instruction, char* arg1, char* arg2);

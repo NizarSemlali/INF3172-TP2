@@ -26,8 +26,8 @@ int main ( int argc, char *argv[]) {
     char cwd[1024];
     getcwd(cwd, sizeof(cwd));
 
-    
-     if(strncmp(argv[1],"/",1) != 0 ) {
+    // Validation du chemin : Relatif ou absolu  
+    if(strncmp(argv[1],"/",1) != 0 ) {
         
         strcpy(path, cwd);
         strcpy(fileName,argv[1]);
@@ -49,6 +49,7 @@ int main ( int argc, char *argv[]) {
     
     int target = atoi(argv[0]);
     
+    // Si le chemin absolu ou relatif n'existe pas
     if( chdir( path ) != 0 ) {
 
         fprintf(stderr, "Répertoire introuvable\n");
@@ -125,7 +126,6 @@ int main ( int argc, char *argv[]) {
 
 
         // On se repositionne dans le dossier ou on était initialement
-
         chdir(cwd);
         
         return EXIT_SUCCESS;

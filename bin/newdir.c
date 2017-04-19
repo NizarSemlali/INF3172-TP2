@@ -20,14 +20,12 @@
 int main ( int argc, char *argv[]) {
 
     // On garde l'adresse courante de notre dossier : 
-
-
     char path[BUFFER_SIZE];
     char fileName[BUFFER_SIZE];
     char cwd[1024];
     getcwd(cwd, sizeof(cwd));
 
-    
+    // Validation du chemin : Relatif ou absolu 
     if(strncmp(argv[0],"/",1) != 0 ) {
         
         strcpy(path, cwd);
@@ -48,7 +46,7 @@ int main ( int argc, char *argv[]) {
 
     }
 
-
+    // Si le chemin absolu ou relatif n'existe pas
     if( chdir( path ) != 0 ) {
 
         fprintf(stderr, "Répertoire introuvable\n");
@@ -59,6 +57,7 @@ int main ( int argc, char *argv[]) {
 
     } else {
 
+        // Création du nouveau répertoire
         DIR* rep2 = NULL;
         char pathcomplet[BUFFER_SIZE];
 
@@ -78,18 +77,22 @@ int main ( int argc, char *argv[]) {
             mode_t process_mask = umask(0);
             int result_code = mkdir(pathcomplet, S_IRWXU | S_IRWXG | S_IRWXO);
             umask(process_mask);
-            if(result_code == 0)
+            if(result_code == 0){
                 printf("repertoire créé!\n");
 
-            else
+            }else{
                 printf("repertoire non créé!\n");
+            }
+
+            if (closedir(rep2) == -1) // S'il y a eu une erreur avec la fermeture 
+               
+            fprintf(stderr, "Erreur de fermeture du répertoire !\n");
 
         } 
-        // On se repositionne dans le dossier ou on était initialement
         
-
     }
-    
+
+    // On se repositionne dans le dossier ou on était initialement
     chdir(cwd);
 
     return EXIT_SUCCESS;

@@ -17,5 +17,20 @@
 
 #include "link.h"
 
+/*
+ * Fonction qui calcule le nombre de fichiers dans le répertoire récursivement . 
+ *
+ * @param path : Chemin du répertoire cible. 
+ * @return nombre de fichiers du répertoire.
+ *
+*/ 
 int calculNombreFichiers(char* path);
+
+/*
+ * Fonction qui calcule la taille totale du répertoire récursivement .
+ *
+ * @param path : Chemin du répertoire cible. 
+ * @return taille totale du répertoire. 
+ *
+*/ 
 int calculTailleTotale(char* path);

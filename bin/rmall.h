@@ -17,4 +17,12 @@
 
 #include "link.h"
 
+/*
+ * Vide le répertoire courant avant de le supprimer .
+ * Effectue le travail récursivement, s'assure donc de supprimer tout les sous répertoires
+ * et leur contenu avant de supprimer le répertoire parent .  
+ *
+ * @param path : Chemin du répertoire à vider . 
+ *
+*/ 
 void vider_repertoire(char* path);

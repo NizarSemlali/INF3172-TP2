@@ -18,15 +18,14 @@
 
 int main ( int argc, char *argv[]) {
 
-	char path[BUFFER_SIZE];          // Chemin du dossier à supprimer 
-    //char repertoryName[BUFFER_SIZE];
-
+     // Chemin du dossier à supprimer 
+	char path[BUFFER_SIZE];         
 
     // On garde l'adresse courante de notre dossier : 
     char cwd[1024];
     getcwd(cwd, sizeof(cwd));
 
-    
+    // Validation du chemin : Relatif ou absolu 
     if(strncmp(argv[0],"/",1) == 0 ) {
 
         strcpy(path, argv[0]);
@@ -44,6 +43,7 @@ int main ( int argc, char *argv[]) {
     DIR* rep = NULL;
     rep = opendir(path); // Ouverture du dossier 
 
+    // Si le chemin absolu ou relatif n'existe pas
     if (rep == NULL) { 
 
         fprintf(stderr, "Répertoire introuvable !\n"); 
@@ -54,11 +54,13 @@ int main ( int argc, char *argv[]) {
 
     } else {
         
+        // Appel récursif
         vider_repertoire(path);
         printf("Répertoire supprimé! \n");
            
     }
 
+    // On se repositionne dans le dossier ou on était initialement
     chdir(cwd);
     
     return EXIT_SUCCESS;
@@ -88,16 +90,19 @@ void vider_repertoire(char* path){
             strcmp(fichierLu->d_name,".") != 0 &&
             strcmp(fichierLu->d_name,"..") != 0) {
 
+            // Appel récursif, suppression des sous-répertoires
             vider_repertoire(cible);
         	
 
         } else {
 
+            // Suppression des fichiers du répertoire 
         	remove(cible);
 
         }
     }
-
+    
+    // Suppression du répertoire cible 
     rmdir(path);
                 
 }
