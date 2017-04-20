@@ -13,7 +13,7 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License
-Discription:
+Description:
 La classe fin sert à afficher un certain nombre de lignes d'un fichier à partir de la fin du fichier.
 Le paramètre nbLignes est le nombre de lignes à afficher, ce doit être un entier positif. Le paramètre
 fichier est un chemin relatif ou absolu vers le fichier à lire. Une erreur est affichée si le fichier est

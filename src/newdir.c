@@ -13,7 +13,7 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
-Discription:
+Description:
 La classe newdir sert à créer un nouveau répertoire vide. Le paramètre est un chemin relatif ou
 absolu vers le répertoire à créer. Une erreur de création doit afficher un message à l'écran
 ****************************************************************************/

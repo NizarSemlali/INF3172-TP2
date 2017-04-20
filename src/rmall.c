@@ -13,7 +13,7 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
-Discription:
+Description:
 La classe rmall supprime un répertoire et tout son contenu récursivement (tous les sousrépertoires)
 sans demander de confirmation. Le nom du répertoire peut être un chemin relatif ou
 absolu. Si le répertoire est inexistant, un message doit être affiché. Si l'utilisateur ne possède pas les
