@@ -72,4 +72,4 @@ Pas de références.
 ## Statut
 
 Toutes les méthodes sont implémentées . 
-Il faut créer un répertoire ~/inf3172 au préalable, pour que le ~/inf3172/bin qui contiendra tout les exécutables soit créé. 
+Tout les exécutables sont dans le dossier ~/inf3172/bin, incluant le tsh .  
