@@ -5,8 +5,8 @@
 * 
 *     http://www.apache.org/licenses/LICENSE-2.0
 * 
-*   Copyright [2016] [Nizar Semlali]
-*   Copyright [2016] [Othmane Bouaddi]
+*   Copyright [2017] [Nizar Semlali]
+*   Copyright [2017] [Othmane Bouaddi]
 * 
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -54,7 +54,8 @@ int main ( int argc, char *argv[]) {
             char cwd[1024];
             getcwd(cwd, sizeof(cwd));
             printf("Répertoire courant : %s\n", cwd);
- 
+        
+        //Fonction cd : changer le répertoire de travail du shell
         } else if ( strcmp (func, "cd") == 0 ){
 
             // Commande cd sans paramètre
@@ -69,32 +70,32 @@ int main ( int argc, char *argv[]) {
 
             }
 
-        // Fonction list 
+        // Fonction list  :afficher la liste des fichiers ou répertoires dans le répertoire courant du shell 
         } else if ( strcmp (func, "list") == 0 ) {
 
             callInstruction("list",arg1,arg2);
 
-        // Fonction new 
+        // Fonction new :créer un nouveau fichier texte vide.
         } else if ( strcmp (func, "new") == 0 ) {
 
             callInstruction("new",arg1,arg2);
 
-        // Fonction rmall 
+        // Fonction rmall : supprime un répertoire et tout son contenu récursivement
         } else if (strcmp (func, "rmall") == 0 ) {
 
             callInstruction("rmall",arg1,arg2);
 
-        // Fonction newdir 
+        // Fonction newdir : créer un nouveau répertoire vide
         } else if (strcmp (func, "newdir") == 0 ){
             
             callInstruction("newdir",arg1,arg2);
 
-        // Fonction size 
+        // Fonction size : calculer le nombre de fichier dans le répertoire et la taille du répertoire
         } else if (strcmp (func, "size") == 0 ){
             
             callInstruction("size",arg1,arg2);
 
-        // Fonction fin 
+        // Fonction fin : afficher un certain nombre de lignes d'un fichier à partir de la fin du fichier
         } else if (strcmp (func, "fin") == 0 ){
             
             // Validation du paramètre nombre de lignes

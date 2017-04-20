@@ -5,21 +5,26 @@
 * 
 *     http://www.apache.org/licenses/LICENSE-2.0
 * 
-*   Copyright [2016] [Nizar Semlali]
-*   Copyright [2016] [Othmane Bouaddi]
+*   Copyright [2017] [Nizar Semlali]
+*   Copyright [2017] [Othmane Bouaddi]
 * 
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
-* limitations under the License.
+* limitations under the License
+Discription:
+La classe fin sert à afficher un certain nombre de lignes d'un fichier à partir de la fin du fichier.
+Le paramètre nbLignes est le nombre de lignes à afficher, ce doit être un entier positif. Le paramètre
+fichier est un chemin relatif ou absolu vers le fichier à lire. Une erreur est affichée si le fichier est
+inexistant.
 ****************************************************************************/
 #include "link.h"
 
 
 int main ( int argc, char *argv[]) {
 
-  char path[BUFFER_SIZE];          
+    char path[BUFFER_SIZE];          
 
 	char fileName[BUFFER_SIZE];
     // On garde l'adresse courante de notre dossier : 
