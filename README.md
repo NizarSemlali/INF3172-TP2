@@ -72,4 +72,4 @@ Pas de références.
 ## Statut
 
 Toutes les méthodes sont implémentées . 
-WIP pour le makefile et déplacement de l'exécutable tsh dans le répertoire bin.
+Il faut créer un répertoire ~/inf3172 au préalable, pour que le ~/inf3172/bin qui contiendra tout les exécutables soit créé. 
