@@ -5,14 +5,19 @@
 * 
 *     http://www.apache.org/licenses/LICENSE-2.0
 * 
-*   Copyright [2016] [Nizar Semlali]
-*   Copyright [2016] [Othmane Bouaddi]
+*   Copyright [2017] [Nizar Semlali]
+*   Copyright [2017] [Othmane Bouaddi]
 * 
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
+Discription:
+La classe rmall supprime un répertoire et tout son contenu récursivement (tous les sousrépertoires)
+sans demander de confirmation. Le nom du répertoire peut être un chemin relatif ou
+absolu. Si le répertoire est inexistant, un message doit être affiché. Si l'utilisateur ne possède pas les
+droits pour supprimer le répertoire, un message doit être affiché mais le contenu doit rester intacte.
 ****************************************************************************/
 #include "rmall.h"
 

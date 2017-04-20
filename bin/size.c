@@ -5,14 +5,19 @@
 * 
 *     http://www.apache.org/licenses/LICENSE-2.0
 * 
-*   Copyright [2016] [Nizar Semlali]
-*   Copyright [2016] [Othmane Bouaddi]
+*   Copyright [2017] [Nizar Semlali]
+*   Copyright [2017] [Othmane Bouaddi]
 * 
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
+Discription:
+La classe size doit calculer le nombre de fichier dans le répertoire et la taille du répertoire ,
+c'est-à-dire la somme de la taille de tous les fichiers qu'il contient, peu importe la profondeur. Le
+paramètre est un chemin relatif ou absolu vers le répertoire où calculer la taille. Un message doit
+être affiché si le répertoire est inexistant.
 ****************************************************************************/
 #include "size.h"
 
