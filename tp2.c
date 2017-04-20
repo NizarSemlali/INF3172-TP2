@@ -100,8 +100,9 @@ int main ( int argc, char *argv[]) {
             // Validation du paramètre nombre de lignes
             bool isDigit = true ; 
             int tailleChaine = strlen(arg1) ;
-
-            for( int i = 0; i < tailleChaine ; i++){
+            
+            int i ; 
+            for( i = 0; i < tailleChaine ; i++){
 
                 if( arg1[i] < '0' || arg1[i] > '9') {
 
