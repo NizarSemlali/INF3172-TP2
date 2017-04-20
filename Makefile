@@ -3,62 +3,66 @@
 # - NIZAR SEMLALI
 # - OTHMANE BOUADDI
 #----------------------------------------------------------------
-all: tsh bin/list bin/new bin/rmall bin/newdir bin/size bin/fin
+EXEDIR = ~/inf3172/bin
+OBJDIR = ~/inf3172/obj
+all: $(EXEDIR)/tsh $(EXEDIR)/list $(EXEDIR)/new $(EXEDIR)/rmall $(EXEDIR)/newdir $(EXEDIR)/size $(EXEDIR)/fin
 CC = gcc
 OBJECTS := $(patsubst %.c,%.o,$(wildcard *.c))
 EXEC = tsh
 
-bin/list: bin/list.o
-	$(CC) -o bin/list bin/list.o
+$(shell mkdir -p $(EXEDIR))
+$(shell mkdir -p $(OBJDIR))
 
-bin/list.o: bin/list.c
-	$(CC) -Wall -o bin/list.o -c bin/list.c
+$(EXEDIR)/list: $(OBJDIR)/list.o
+	$(CC) -o $(EXEDIR)/list $(OBJDIR)/list.o
 
-bin/new: bin/new.o
-	$(CC) -o bin/new bin/new.o
+$(OBJDIR)/list.o: src/list.c
+	$(CC) -Wall -o $(OBJDIR)/list.o -c src/list.c
 
-bin/new.o: bin/new.c
-	$(CC) -Wall -o bin/new.o -c bin/new.c
+$(EXEDIR)/new: $(OBJDIR)/new.o
+	$(CC) -o $(EXEDIR)/new $(OBJDIR)/new.o
 
-bin/rmall: bin/rmall.o
-	$(CC) -o bin/rmall bin/rmall.o
+$(OBJDIR)/new.o: src/new.c
+	$(CC) -Wall -o $(OBJDIR)/new.o -c src/new.c
 
-bin/rmall.o: bin/rmall.c
-	$(CC) -Wall -o bin/rmall.o -c bin/rmall.c
+$(EXEDIR)/rmall: src/rmall.o
+	$(CC) -o $(EXEDIR)/rmall src/rmall.o
 
-bin/newdir: bin/newdir.o
-	$(CC) -o bin/newdir bin/newdir.o
+$(OBJDIR)/rmall.o: src/rmall.c
+	$(CC) -Wall -o $(OBJDIR)/rmall.o -c src/rmall.c
 
-bin/newdir.o: bin/newdir.c
-	$(CC) -Wall -o bin/newdir.o -c bin/newdir.c
+$(EXEDIR)/newdir: $(OBJDIR)/newdir.o
+	$(CC) -o $(EXEDIR)/newdir $(OBJDIR)/newdir.o
 
-bin/size: bin/size.o
-	$(CC) -o bin/size bin/size.o
+$(OBJDIR)/newdir.o: src/newdir.c
+	$(CC) -Wall -o $(OBJDIR)/newdir.o -c src/newdir.c
 
-bin/size.o: bin/size.c
-	$(CC) -Wall -o bin/size.o -c bin/size.c
+$(EXEDIR)/size: $(OBJDIR)/size.o
+	$(CC) -o $(EXEDIR)/size $(OBJDIR)/size.o
 
-bin/fin: bin/fin.o
-	$(CC) -o bin/fin bin/fin.o
+$(OBJDIR)/size.o: src/size.c
+	$(CC) -Wall -o $(OBJDIR)/size.o -c src/size.c
 
-bin/fin.o: bin/fin.c
-	$(CC) -Wall -o bin/fin.o -c bin/fin.c
+$(EXEDIR)/fin: $(OBJDIR)/fin.o
+	$(CC) -o $(EXEDIR)/fin $(OBJDIR)/fin.o
 
-$(EXEC): $(OBJECTS)
-	$(CC) -o $(EXEC) $(OBJECTS)
+$(OBJDIR)/fin.o: src/fin.c
+	$(CC) -Wall -o $(OBJDIR)/fin.o -c src/fin.c
 
-%.o: %.c
+$(EXEDIR)/$(EXEC): $(OBJDIR)/$(OBJECTS)
+	$(CC) -o $(EXEDIR)/$(EXEC) $(OBJDIR)/$(OBJECTS)
+
+$(OBJDIR)/%.o: %.c
 	$(CC) -Wall -o $@ -c $<
 
 
 .PHONY: clean
 
 clean:
-	rm -f $(EXEC) $(OBJECTS)
-	rm -f bin/newdir bin/newdir.o
-	rm -f bin/list bin/list.o
-	rm -f bin/new bin/new.o
-	rm -f bin/rmall bin/rmall.o
-	rm -f bin/size bin/size.o
-	rm -f bin/fin bin/fin.o
-	
+	rm -f $(EXEDIR)/tsh $(OBJDIR)/$(OBJECTS)
+	rm -f $(EXEDIR)/newdir $(OBJDIR)/newdir.o
+	rm -f $(EXEDIR)/list $(OBJDIR)/list.o
+	rm -f $(EXEDIR)/new $(OBJDIR)/new.o
+	rm -f $(EXEDIR)/rmall $(OBJDIR)/rmall.o
+	rm -f $(EXEDIR)/size $(OBJDIR)/size.o
+	rm -f $(EXEDIR)/fin $(OBJDIR)/fin.o
