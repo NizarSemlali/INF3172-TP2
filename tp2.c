@@ -145,8 +145,7 @@ void callInstruction(char* instruction, char* arg1, char* arg2){
 
     strcpy(chemin, "./");
     strcat(chemin, instruction);
-
-	printf("Le chemin : %s\n", chemin);
+    
     // FORK , et exécution du sous-programme :
     pid = fork();
                 
